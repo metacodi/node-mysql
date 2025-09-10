@@ -31,7 +31,7 @@ if (options.verbose) { console.log('Arguments: ', options); }
   
     Terminal.log(`Actualitzant dependències de ${chalk.bold(`@metacodi`)}`);
   
-    await upgradeDependency(`@metacodi/node-utils`, '--save-peer');
+    await upgradeDependency(`@metacodi/node-utils`, '--save-dev');
     await upgradeDependency(`@metacodi/api-model`, '--save-peer');
   
     Terminal.log(`Dependències actualitzades correctament!`);
