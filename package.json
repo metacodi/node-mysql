@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/node-mysql",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "MySQL/MariaDB access library for Node.js with pools, prepared statements, and multi-environment support.",
   "keywords": [
     "Api",
@@ -18,10 +18,18 @@
     "url": "git+https://github.com/metacodi/node-mysql.git"
   },
   "license": "ISC",
-  "author": { "name": "Metacodi, S.L." },
+  "author": {
+    "name": "Metacodi, S.L."
+  },
   "contributors": [
-    { "name": "Jordi Giral", "email": "jgiral@metacodi.com" },
-    { "name": "Xavier Giral", "email": "xgiral@metacodi.com" }
+    {
+      "name": "Jordi Giral",
+      "email": "jgiral@metacodi.com"
+    },
+    {
+      "name": "Xavier Giral",
+      "email": "xgiral@metacodi.com"
+    }
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
