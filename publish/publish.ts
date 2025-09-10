@@ -28,7 +28,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 (async () => {
   try {
 
-    incrementPackageVersion();
+    // incrementPackageVersion();
     
     if (Resource.exists(`dist`)) {
       Terminal.log(`Eliminant la carpeta de distribució ${chalk.bold(`dist`)}.`);
