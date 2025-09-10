@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true,
+        "sourceType": "module",
+        "ecmaVersion": 2015
+      },
+      "rules": {
+        "max-len": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "jsdoc/newline-after-description": "off"
+      }
+    }
+  ]
+}
