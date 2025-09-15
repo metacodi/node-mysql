@@ -115,6 +115,48 @@ await db.retrieveSchema();
 console.log(db.tables);  // generic `Table[]`
 ```
 
+### @metacodi/api-model types
+
+```typescript
+interface Table {
+  name: string;
+  columns: Column[];
+  parents: Relation[];
+  children: Relation[];
+  primaryKey: string;
+  virtual?: boolean;
+}
+```
+
+```typescript
+interface Column {
+  name: string;
+  type: 'string' | 'number' | 'boolean' | 'polygon' | 'json';
+  isNullable?: boolean;
+  isPrimaryKey?: boolean;
+  isUnique?: boolean;
+  isVirtual?: boolean;
+  schema?: any; // Raw database schema metadata exactly as returned by the engine/driver.
+  default?: any;
+}
+```
+
+```typescript
+interface Relation {
+  name: string;
+  parent: {
+    table: string; // Ex: `users`
+    field: string; // Ex: `id`
+  };
+  child: {
+    table: string; // Ex: `devices`
+    field: string; // Ex: `id_user`
+  };
+  update?: 'CASCADE' | 'SET NULL';
+  delete?: 'CASCADE' | 'SET NULL';
+}
+```
+
 ## [Lang Tables](#node-mysql)
 
 Projects that store localized fields in `<table>_lang` can use:
@@ -140,36 +182,36 @@ Generate parameterized and interpolated CRUD snippets from a row using `sequeliz
 
 ```typescript
 const row = {
-  idreg: 11575,
-  idUser: 11583,
-  idEmpresa: null,
-  idProveedor: 100,
-  idPayment: null,
-  autoAutorizar: 0,
+  id: 11575,
+  id_user: 11583,
+  id_company: null,
+  id_provider: 100,
+  id_payment: null,
+  authorized: 0,
   created: '2024-04-30 16:20:28',
   updated: '2024-04-30 16:20:28',
   deleted: null,
 };
 
-const { parameterized, interpolated, tokens } = db.sequelizeCrudStatements('clientes', row, {
-  primaryKey: 'idreg',
+const { parameterized, interpolated, tokens } = db.sequelizeCrudStatements('customers', row, {
+  primaryKey: 'id',
   prefixFieldsWithTable: true,
 });
 
 // Parameterized examples
-parameterized.select; // SELECT `clientes`.`idreg`, ... FROM `clientes`
-parameterized.insert; // INSERT INTO `clientes` (...) VALUES (:idreg, :idUser, ...)
-parameterized.update; // UPDATE `clientes` SET `clientes`.`idreg` = :idreg, ... WHERE `clientes`.`idreg` = 11575
+parameterized.select; // SELECT `customers`.`id`, ... FROM `customers`
+parameterized.insert; // INSERT INTO `customers` (...) VALUES (:id, :id_user, ...)
+parameterized.update; // UPDATE `customers` SET `customers`.`name` = :name, ... WHERE `customers`.`id` = :id
 
 // Interpolated examples
-interpolated.select;  // SELECT `clientes`.`idreg`, ... FROM `clientes` WHERE `clientes`.`idreg` = 11575
-interpolated.insert;  // INSERT INTO `clientes` (...) VALUES (11575, 11583, null, 100, ...)
-interpolated.update;  // UPDATE `clientes` SET `clientes`.`idreg` = 11575, ... WHERE `clientes`.`idreg` = 11575
+interpolated.select;  // SELECT `customers`.`id`, ... FROM `customers` WHERE `customers`.`id` = 11575
+interpolated.insert;  // INSERT INTO `customers` (...) VALUES (11575, 11583, null, 100, ...)
+interpolated.update;  // UPDATE `customers` SET `customers`.`name` = 'Company, Inc.', ... WHERE `customers`.`id` = 11575
 
 // Tokens (metadata)
-tokens.primaryKey; // `clientes`.`idreg`
-tokens.fields;     // ['`idreg`', '`idUser`', ...]
-tokens.columns;    // ['`clientes`.`idreg`', '`clientes`.`idUser`', ...]
+tokens.primaryKey; // `customers`.`id`
+tokens.fields;     // ['`id`', '`id_user`', ...]
+tokens.columns;    // ['`customers`.`id`', '`customers`.`id_user`', ...]
 ```
 
 ## [API Summary](#node-mysql)
