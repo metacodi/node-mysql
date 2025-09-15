@@ -343,9 +343,23 @@ export class MySqlDatabase implements AbstractDatabase {
     return !!column;
   }
 
-  stringifyRelation(rel: Relation) { return `${rel.child.table}.${rel.child.field}=${rel.parent.table}.${rel.parent.field}`; }
+  stringifyRelation(rel: Relation, options?: { quoteEntityName?: boolean }) {
+    if (!options) { options = {}; }
+    const quoteEntityName = options.quoteEntityName === undefined ? true : options.quoteEntityName;
+    return quoteEntityName ? 
+      `${this.quoteEntityName(rel.child.table)}.${this.quoteEntityName(rel.child.field)}=${this.quoteEntityName(rel.parent.table)}.${this.quoteEntityName(rel.parent.field)}` :
+      `${rel.child.table}.${rel.child.field}=${rel.parent.table}.${rel.parent.field}`
+    ;
+  }
   
-  sequelizeRelation(rel: Relation) { return `ON ${rel.child.table}.${rel.child.field} = ${rel.parent.table}.${rel.parent.field}`; }
+  sequelizeRelation(rel: Relation, options?: { quoteEntityName?: boolean }) {
+    if (!options) { options = {}; }
+    const quoteEntityName = options.quoteEntityName === undefined ? true : options.quoteEntityName;
+    return quoteEntityName ? 
+      `ON ${this.quoteEntityName(rel.child.table)}.${this.quoteEntityName(rel.child.field)} = ${this.quoteEntityName(rel.parent.table)}.${this.quoteEntityName(rel.parent.field)}` :
+      `ON ${rel.child.table}.${rel.child.field} = ${rel.parent.table}.${rel.parent.field}`
+    ;
+  }
 
   async retrieveSchema(options?: { forceRefresh?: boolean }) {
     if (!options) { options = {}; }
