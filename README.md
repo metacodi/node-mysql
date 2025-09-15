@@ -19,6 +19,7 @@ MySQL/MariaDB access library for Node.js with pools, prepared statements, and mu
 
 - Simple, typed one-off queries using `mysql2` pools.
 - Efficient repeated queries using prepared statements with an internal cache per environment.
+- Named placeholders support (`:id`, `:name`) across pools and prepared statements.
 - Multi-environment support (dev, pre, pro) with one pool per environment.
 - Schema discovery via `INFORMATION_SCHEMA` and conversion to a generic `@metacodi/api-model` representation.
 - Utilities for generating SQL (interpolation/quoting), and for mixed language tables (`_lang`).
@@ -82,6 +83,8 @@ for (const user of users) {
 stmt.close();
 ```
 
+Named placeholders allow you to bind values by name (e.g., `:id_user`) instead of positional `?` markers. When using prepared statements, pass an object to `execute({ ... })` with keys matching the placeholder names.
+
 Or run batch work using a dedicated connection that is always released:
 
 ```typescript
@@ -95,6 +98,35 @@ Release everything when finished (scripts, maintenance tasks):
 
 ```typescript
 await db.closeAllConnections();
+```
+
+## Named Placeholders
+
+This library enables MySQL2's named placeholders by default, so parameterized queries can use `:param` tokens, not only `?`.
+
+- Enabled by default for pools and connections created via `getPool`, `getPersistentConnection`, and `withConnection`.
+- Prepared statements parse named placeholders and map them to the underlying driver automatically.
+- You can disable them per call by passing `{ namedPlaceholders: false }` to pool/connection helpers if you need positional `?`.
+
+Examples with a direct connection:
+
+```typescript
+await db.withConnection(async (conn) => {
+  // Named placeholders (object values)
+  const [rows1] = await conn.query(
+    'SELECT * FROM users WHERE id = :id AND status = :status',
+    { id: 42, status: 'active' }
+  );
+
+  // If needed, positional placeholders (array values)
+  // Note: pass { namedPlaceholders: false } when acquiring the connection
+  const conn2 = await db.getPersistentConnection({ namedPlaceholders: false });
+  const [rows2] = await conn2.query(
+    'SELECT * FROM users WHERE id = ? AND status = ?',
+    [42, 'active']
+  );
+  conn2.release();
+});
 ```
 
 ## [Environments](#node-mysql)
@@ -227,6 +259,8 @@ tokens.columns;    // ['`customers`.`id`', '`customers`.`id_user`', ...]
 - `unprepare(key, { env })`
 - `closeAllConnections()`
 - Schema: `retrieveSchema()`, `tables`, `schemas`, and helpers above
+
+Note: `namedPlaceholders` is enabled by default across pools and connections.
 
 ## [Contributing](#node-mysql)
 
