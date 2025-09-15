@@ -147,6 +147,16 @@ await db.retrieveSchema();
 console.log(db.tables);  // generic `Table[]`
 ```
 
+### Type Mapping
+
+When parsing column definitions from the database schema, types are normalized to a small set used by `@metacodi/api-model`:
+
+- Boolean: MySQL/MariaDB do not have a native boolean type; `TINYINT(1)` is treated as a boolean.
+- JSON: Columns with `LONGTEXT` are treated as JSON containers (alongside native `JSON`).
+- Temporal as string: `DATE`, `DATETIME`, and `TIME` are exposed as strings (the original DB textual format), not special date/time types.
+
+At read time, values for `JSON`/`LONGTEXT` columns are parsed with `JSON.parse(...)`. Temporal values remain strings.
+
 ### @metacodi/api-model types
 
 ```typescript
