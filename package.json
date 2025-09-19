@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/node-mysql",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "MySQL/MariaDB access library for Node.js with pools, prepared statements, and multi-environment support.",
   "keywords": [
     "Api",
