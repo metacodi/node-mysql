@@ -361,6 +361,7 @@ export class MySqlDatabase implements AbstractDatabase {
     ;
   }
 
+  /** Retrieve schema metadata from INFORMATION_SCHEMA. */
   async retrieveSchema(options?: { forceRefresh?: boolean }) {
     if (!options) { options = {}; }
     const forceRefresh = options.forceRefresh === undefined ? false : options.forceRefresh;

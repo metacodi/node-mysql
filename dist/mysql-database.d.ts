@@ -154,6 +154,7 @@ export declare class MySqlDatabase implements AbstractDatabase {
     sequelizeRelation(rel: Relation, options?: {
         quoteEntityName?: boolean;
     }): string;
+    /** Retrieve schema metadata from INFORMATION_SCHEMA. */
     retrieveSchema(options?: {
         forceRefresh?: boolean;
     }): Promise<Table[]>;

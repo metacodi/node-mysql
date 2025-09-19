@@ -384,6 +384,7 @@ class MySqlDatabase {
             `ON ${this.quoteEntityName(rel.child.table)}.${this.quoteEntityName(rel.child.field)} = ${this.quoteEntityName(rel.parent.table)}.${this.quoteEntityName(rel.parent.field)}` :
             `ON ${rel.child.table}.${rel.child.field} = ${rel.parent.table}.${rel.parent.field}`;
     }
+    /** Retrieve schema metadata from INFORMATION_SCHEMA. */
     async retrieveSchema(options) {
         if (!options) {
             options = {};
