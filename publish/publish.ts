@@ -28,7 +28,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 (async () => {
   try {
 
-    incrementPackageVersion();
+    const version = incrementPackageVersion();
     
     if (Resource.exists(`dist`)) {
       Terminal.log(`Eliminant la carpeta de distribució ${chalk.bold(`dist`)}.`);
@@ -43,7 +43,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
     Terminal.log(chalk.bold(`Compilant projecte typescript`));
     await Terminal.run(`tsc`);
 
-    const ok = await Git.publish({ branch: 'main', commit: promptOpts.commit });
+    const ok = await Git.publish({ branch: 'main', commit: promptOpts.commit || `publish version ${version}` });
     if (ok) { Terminal.log(`Git published successfully!`); }
     
     Terminal.log(`npm publish`);
