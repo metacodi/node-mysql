@@ -51,7 +51,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 
     Terminal.log(chalk.blueBright(`Repositori publicat correctament!`));
     const pkg = Resource.open('package.json');
-    Terminal.log(chalk.green(`npm install ` + chalk.bold(`@metacodi/node-mysql@${pkg.version}`)));
+    Terminal.log(chalk.green(`npm install ` + chalk.bold(`${pkg.name}@${pkg.version}`)));
 
   } catch (error) {
     Terminal.error(error);
