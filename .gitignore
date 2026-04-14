@@ -102,6 +102,8 @@ typings/
 # TernJS port file
 .tern-port
 
+.DS_Store
+
 /test/prepare-statement.json
 
 /test/resources/test-api-credentials.json
