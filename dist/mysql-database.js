@@ -334,7 +334,7 @@ class MySqlDatabase {
             try {
                 conn.release();
             }
-            catch ( /* ignore */_a) { /* ignore */ }
+            catch { /* ignore */ }
         }
     }
     /** Close all prepared statements, pools, and persistent connections. */
@@ -416,13 +416,13 @@ class MySqlDatabase {
             this.schemas.push({
                 table: schemaTable,
                 columns: schemaColumns,
-                primaryKey: schemaPrimaryKey === null || schemaPrimaryKey === void 0 ? void 0 : schemaPrimaryKey.COLUMN_NAME,
+                primaryKey: schemaPrimaryKey?.COLUMN_NAME,
                 parents: schemaParentRelations,
                 children: schemaChildRelations,
             });
             const table = this.parseTableSchemaInfo(schemaTable);
             table.columns.push(...schemaColumns.map(c => this.parseColumnSchemaInfo(c)));
-            table.primaryKey = schemaPrimaryKey === null || schemaPrimaryKey === void 0 ? void 0 : schemaPrimaryKey.COLUMN_NAME;
+            table.primaryKey = schemaPrimaryKey?.COLUMN_NAME;
             table.parents.push(...schemaParentRelations.map(r => this.parseRelationSchemaInfo(r)));
             table.children.push(...schemaChildRelations.map(r => this.parseRelationSchemaInfo(r)));
             this.tables.push(table);

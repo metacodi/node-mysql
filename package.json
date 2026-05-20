@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/node-mysql",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "MySQL/MariaDB access library for Node.js with pools, prepared statements, and multi-environment support.",
   "keywords": [
     "Api",
@@ -39,22 +39,22 @@
     "lint": "eslint . --ext .ts"
   },
   "peerDependencies": {
-    "@metacodi/api-model": "^1.0.5",
+    "@metacodi/api-model": "^1.0.19",
     "mysql2": "^3.12.0",
     "named-placeholders": "^1.1.3"
   },
   "devDependencies": {
-    "@metacodi/node-utils": "^1.0.56",
-    "@types/node": "^20.16.10",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@metacodi/node-utils": "^1.0.71",
+    "@types/node": "^25.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.4",
+    "@typescript-eslint/parser": "^8.59.4",
     "chalk": "^4.1.2",
-    "commander": "^12.1.0",
-    "eslint": "^8.57.1",
+    "commander": "^14.0.3",
+    "eslint": "^9.39.4",
     "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-jsdoc": "^63.0.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^6.0.3"
   }
 }

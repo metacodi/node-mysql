@@ -1,32 +1,31 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "outDir": "./dist/",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "CommonJS",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist/",
+    "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "resolveJsonModule": true,
-    "strict": true,
+    "resolveJsonModule": false,
     "strictNullChecks": false,
     "removeComments": false,
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": ["node"]
+    "types": ["node"],
+    "strict": true,
   },
+  "include": ["src/"],
   "exclude": [
     "dist",
-    "node_modules",
-    "docs",
-    "publish",
     "test",
+    "precode",
+    "publish",
+    "node_modules",
   ]
 }
