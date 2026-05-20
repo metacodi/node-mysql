@@ -1,6 +1,6 @@
 {
   "name": "@metacodi/node-mysql",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "MySQL/MariaDB access library for Node.js with pools, prepared statements, and multi-environment support.",
   "keywords": [
     "Api",
@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "@metacodi/api-model": "^1.0.19",
-    "mysql2": "^3.12.0",
+    "mysql2": "^3.22.3",
     "named-placeholders": "^1.1.3"
   },
   "devDependencies": {
@@ -54,6 +54,7 @@
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsdoc": "^63.0.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
+    "mysql2": "^3.22.3",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   }
