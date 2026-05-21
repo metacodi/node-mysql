@@ -1,5 +1,6 @@
+packages:
+  - '.'
+  - 'publish'
+  - 'test'
 minimumReleaseAgeExclude:
-  - '@metacodi/api-model@1.0.19'
-  - '@metacodi/node-utils@1.0.71'
-  - '@types/node@25.9.1'
-  - eslint-plugin-jsdoc@63.0.0
+  - '@metacodi/*'

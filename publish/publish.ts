@@ -7,7 +7,7 @@ import { Git, incrementPackageVersion, Resource, Terminal, upgradeDependency } f
  * **Usage**
  *
  * ```bash
- * npx ts-node publish\publish.ts   
+ * pnx ts-node publish\publish.ts   
  * ```
  */
 

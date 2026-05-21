@@ -14,7 +14,7 @@ import { Pool } from 'mysql2';
  * **Usage**
  *
  * ```bash
- * npx ts-node test/retrieve-schema.ts
+ * pnx ts-node test/retrieve-schema.ts
  * ```
  */
 

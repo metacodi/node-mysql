@@ -1,20 +1,17 @@
 #!/usr/bin/env node
-import chalk from 'chalk';
 import * as Prompt from 'commander';
-import moment from 'moment';
 
 import { upgradeDependency, Terminal, Resource, ResourceType } from '@metacodi/node-utils';
 import { DatabaseConnection } from '@metacodi/api-model';
 
 import { MySqlDatabase } from '../src/mysql-database';
-import { Pool } from 'mysql2';
 
 
 /**
  * **Usage**
  *
  * ```bash
- * npx ts-node test/prepare-statement.ts
+ * pnx ts-node test/prepare-statement.ts
  * ```
  */
 
