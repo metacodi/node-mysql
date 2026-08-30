@@ -1,7 +1,6 @@
-import chalk from 'chalk';
 import * as Prompt from 'commander';
 
-import { Git, incrementPackageVersion, Resource, Terminal, upgradeDependency } from '@metacodi/node-utils';
+import { publishPackage, Terminal, upgradeDependency } from '@metacodi/node-utils';
 
 /**
  * **Usage**
@@ -28,6 +27,15 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 (async () => {
   try {
 
+    await publishPackage({
+      upgradeMetacodiDependencies: async () => {
+        if (promptOpts.upgrade) {
+          await upgradeDependency(`@metacodi/node-utils`, '--save-dev');
+        }
+      }
+    });
+
+    /* Codi substituït per publishPackage().
     const version = incrementPackageVersion();
     
     if (Resource.exists(`dist`)) {
@@ -52,6 +60,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
     Terminal.log(chalk.blueBright(`Repositori publicat correctament!`));
     const pkg = Resource.open('package.json');
     Terminal.log(chalk.green(`npm install ` + chalk.bold(`${pkg.name}@${pkg.version}`)));
+    */
 
   } catch (error) {
     Terminal.error(error);
