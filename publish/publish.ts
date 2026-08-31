@@ -29,9 +29,8 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 
     await publishPackage({
       upgradeMetacodiDependencies: async () => {
-        if (promptOpts.upgrade) {
-          await upgradeDependency(`@metacodi/node-utils`, '--save-dev');
-        }
+        if (!promptOpts.upgrade) { return; }
+        await upgradeDependency(`@metacodi/node-utils`, '--save-dev');
       }
     });
 
