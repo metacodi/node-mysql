@@ -1,10 +1,10 @@
 
 if [%1]==[pub] (
-  npx ts-node publish\publish.ts %*
+  pnpm exec ts-node publish\publish.ts %*
 )
 
 if [%1]==[metacodi] (
-  npx ts-node publish\upgrade-metacodi-dependencies.ts %*
+  pnpm exec ts-node publish\upgrade-metacodi-dependencies.ts %*
 )
 
 if [%1]==[docs] (

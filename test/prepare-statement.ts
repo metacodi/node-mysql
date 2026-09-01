@@ -11,7 +11,7 @@ import { MySqlDatabase } from '../src/mysql-database';
  * **Usage**
  *
  * ```bash
- * pnx ts-node test/prepare-statement.ts
+ * pnpm exec ts-node test/prepare-statement.ts
  * ```
  */
 

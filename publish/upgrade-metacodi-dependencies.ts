@@ -7,7 +7,7 @@ import { Terminal, upgradeDependency } from '@metacodi/node-utils';
  * **Usage**
  *
  * ```bash
- * pnx ts-node publish/upgrade-metacodi-dependencies.ts
+ * pnpm exec ts-node publish/upgrade-metacodi-dependencies.ts
  * ```
  */
 

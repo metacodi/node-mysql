@@ -8,12 +8,12 @@ CURDIR="$(pwd)"
 
 if [ $FIRST_ARGUMENT == "pub" ] 
 then
-  npx ts-node publish/publish.ts
+  pnpm exec ts-node publish/publish.ts
 fi
 
 
 if [ $FIRST_ARGUMENT == "metacodi" ] 
 then
-  npx ts-node publish/upgrade-metacodi-dependencies.ts
+  pnpm exec ts-node publish/upgrade-metacodi-dependencies.ts
 fi
 

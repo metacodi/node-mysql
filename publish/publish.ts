@@ -6,7 +6,7 @@ import { publishPackage, Terminal, upgradeDependency } from '@metacodi/node-util
  * **Usage**
  *
  * ```bash
- * pnx ts-node publish\publish.ts   
+ * pnpm exec ts-node publish\publish.ts   
  * ```
  */
 
