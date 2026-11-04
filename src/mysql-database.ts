@@ -419,10 +419,10 @@ export class MySqlDatabase implements AbstractDatabase {
   }
 
   parseColumnSchemaInfo(schema: MySqlColumnSchemaInfo) {
-    const { COLUMN_NAME, COLUMN_TYPE, DATA_TYPE, IS_NULLABLE, COLUMN_KEY, IS_GENERATED } = schema;
+    const { COLUMN_NAME, COLUMN_TYPE, DATA_TYPE, IS_NULLABLE, COLUMN_KEY, IS_GENERATED, TABLE_NAME } = schema;
     const column: Column = {
       name: COLUMN_NAME,
-      type: COLUMN_TYPE.toLowerCase() === 'tinyint(1)' ? 'boolean' : this.parseColumnType(DATA_TYPE),
+      type: COLUMN_TYPE.toLowerCase() === 'tinyint(1)' ? 'boolean' : this.parseColumnType(DATA_TYPE, COLUMN_NAME, TABLE_NAME),
       isNullable: IS_NULLABLE === 'YES',
       isPrimaryKey: COLUMN_KEY === 'PRI',
       isUnique: COLUMN_KEY === 'PRI' || COLUMN_KEY === 'UNI',
@@ -432,29 +432,60 @@ export class MySqlDatabase implements AbstractDatabase {
     return column;
   }
 
-  parseColumnType(type: MySqlColumnSchemaInfo['DATA_TYPE'] | string): Column['type'] {
+  parseColumnType(type: MySqlColumnSchemaInfo['DATA_TYPE'] | string, columnName: string, tableName: string): Column['type'] {
     switch (type) {
+      case 'boolean':
+        return 'boolean';
+
       case 'int':
-      case 'decimal':
-      case 'double':
-      case 'float':
       case 'smallint':
+      case 'mediumint':
+      case 'bigint':
+      case 'float':
+      case 'double':
+      case 'numeric':
+      case 'decimal':
       case 'tinyint':
         return 'number';
+
       case 'date':
       case 'datetime':
       case 'time':
+      case 'timestamp':
         return 'string';
+      case 'year':
+        return 'number';
+
       case 'char':
       case 'varchar':
       case 'text':
         return 'string';
+
+      case 'json':
       case 'longtext':
         return 'json';
+
+      case 'geometry':
+      case 'point':
+      case 'linestring':
       case 'polygon':
-       return 'polygon';
+      case 'multipoint':
+      case 'multilinestring':
+      case 'multipolygon':
+      case 'geometrycollection':
+        return 'string';
+
+      case 'binary':
+      case 'varbinary':
+      case 'blob':
+      case 'tinyblob':
+      case 'mediumblob':
+      case 'longblob':
+      case 'bit':
+        return 'string';
+
       default:
-        throw `Unrecognized MySQL data type '${type}' for conversion to TypeScript.`;
+        throw `Unrecognized MySQL data type '${type}' for conversion to TypeScript in table '${tableName}', column '${columnName}'.`;
     }
   }
 

@@ -160,7 +160,7 @@ export declare class MySqlDatabase implements AbstractDatabase {
     }): Promise<Table[]>;
     parseTableSchemaInfo(schema: MySqlTableSchemaInfo): Table;
     parseColumnSchemaInfo(schema: MySqlColumnSchemaInfo): Column;
-    parseColumnType(type: MySqlColumnSchemaInfo['DATA_TYPE'] | string): Column['type'];
+    parseColumnType(type: MySqlColumnSchemaInfo['DATA_TYPE'] | string, columnName: string, tableName: string): Column['type'];
     parseRelationSchemaInfo(schema: MySqlRelationSchemaInfo): Relation;
     convertToColumnType(value: any, column: Column): any;
     /** Foreign-key field name for lang tables. */

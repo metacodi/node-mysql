@@ -135,7 +135,7 @@ export interface MySqlColumnSchemaInfo {
    * 
    * The `DATA_TYPE` value is the type name only with no other information. The `COLUMN_TYPE` value contains the type name and possibly other information such as the precision or length.
    */
-  DATA_TYPE: 'bigint' | 'char' | 'date' | 'datetime' | 'decimal' | 'double' | 'float' | 'int' | 'integer' | 'json' | 'longtext' | 'mediumint' | 'numeric' | 'polygon' | 'real' | 'smallint' | 'text' | 'time' | 'tinyint' | 'varchar';
+  DATA_TYPE: 'bigint' | 'char' | 'date' | 'datetime' | 'decimal' | 'double' | 'float' | 'int' | 'integer' | 'json' | 'longtext' | 'mediumint' | 'numeric' | 'polygon' | 'point' | 'real' | 'smallint' | 'text' | 'time' | 'tinyint' | 'varchar';
   /** For string columns, the maximum length in characters. */
   CHARACTER_MAXIMUM_LENGTH: number | null;
   /** For string columns, the maximum length in bytes. */
