@@ -6,13 +6,21 @@ THIRD_ARGUMENT="$3"
 CURDIR="$(pwd)"
 
 
-if [ $FIRST_ARGUMENT == "pub" ] 
+if [ "$FIRST_ARGUMENT" = "i" ] || [ "$FIRST_ARGUMENT" = "install" ]
 then
-  pnpm exec ts-node publish/publish.ts
+  find . -type d -name node_modules -prune -exec rm -rf -- {} + &&
+    find . -type f \( -name pnpm-lock.yaml -o -name package-lock.json \) -exec rm -f -- {} + &&
+    pnpm install
+fi
+
+if [ "$FIRST_ARGUMENT" = "pub" ]
+then
+  shift
+  pnpm exec ts-node --project publish/tsconfig.json publish/publish.ts "$@"
 fi
 
 
-if [ $FIRST_ARGUMENT == "metacodi" ] 
+if [ "$FIRST_ARGUMENT" = "metacodi" ]
 then
   pnpm exec ts-node publish/upgrade-metacodi-dependencies.ts
 fi

@@ -17,6 +17,8 @@ Prompt.program
   // .requiredOption('-f, --folder <folder>', 'Ruta absoluta de la carpeta i nom del component.')
   .option('-u, --upgrade', 'Upgrade metacodi dependencies')
   .option('-v, --verbose', 'Log verbose')
+  .option('-c, --commit <message>', 'Descripció del commit')
+  .option('-r, --republish', 'Republica sense incrementar la versió del package.json')
 ;
 Prompt.program.parse(process.argv);
 
@@ -28,6 +30,9 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
   try {
 
     await publishPackage({
+      commitMessage: promptOpts.commit,
+      incrementVersion: !promptOpts.republish,
+      removeCurrentVersion: !!promptOpts.republish,
       upgradeMetacodiDependencies: async () => {
         if (!promptOpts.upgrade) { return; }
         await upgradeDependency(`@metacodi/node-utils`, '--save-dev');
