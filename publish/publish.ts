@@ -23,6 +23,7 @@ Prompt.program
 Prompt.program.parse(process.argv);
 
 const promptOpts = Prompt.program.opts();
+Terminal.verboseEnabled = !!promptOpts.verbose;
 
 if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
 
@@ -30,6 +31,7 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
   try {
 
     await publishPackage({
+      verbose: !!promptOpts.verbose,
       commitMessage: promptOpts.commit,
       incrementVersion: !promptOpts.republish,
       removeCurrentVersion: !!promptOpts.republish,

@@ -161,10 +161,10 @@ packages:
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
   '@metacodi/api-model@1.0.20':
-    resolution: {integrity: sha512-aYrO8pAvz7PY0UdVmG5TBKFvhbpBdIIGzF7y1YEm1h1RSXzFs7uNRB+O75sLFZI5R5q6P171HNznRq7na6PMVQ==, tarball: https://npm.pkg.github.com/download/@metacodi/api-model/1.0.20/7a905f46d9e7ed6662214e49c594b0790e71acd3}
+    resolution: {integrity: sha512-bIlJOgSXKDDAh/160m84CcfigV4hgGLsSr+1t1BguT05AhKAHC7xmSXTGH8EPa/mcIvMq6BV4huL78wvF+Tt7Q==, tarball: https://npm.pkg.github.com/download/@metacodi/api-model/1.0.20/f5136ab0ecf30a20cc29050c60e02313d84e2241}
 
   '@metacodi/node-utils@1.0.81':
-    resolution: {integrity: sha512-LTXdJIT0KQT08YEuGWPdOmoVZxKHBekQkoV6Vh3cGuXJ0KRXfc93XoXKGQY3s4Nt/Ezp7HeoJ+0up/mZXWcF6g==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/c86ee733b2a4f276646d91068d5e6c8e105a118d}
+    resolution: {integrity: sha512-nO0ZAx0o1V7w7XDLw8OS2tcHQJw19bl1jcacDUPngevbZX0iZzJRP3/zdCl+dG5ETYv83AjDYDFsarKUDG44IA==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/12803fadbd96b5d1a0a9e7b2ebbd53a73de4f5c2}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       chalk: ^4.1.2

@@ -8,7 +8,8 @@ CURDIR="$(pwd)"
 
 if [ "$FIRST_ARGUMENT" = "i" ] || [ "$FIRST_ARGUMENT" = "install" ]
 then
-  find . -type d -name node_modules -prune -exec rm -rf -- {} + &&
+  pnpm cache delete '@metacodi/*' --registry=https://npm.pkg.github.com &&
+    find . -type d -name node_modules -prune -exec rm -rf -- {} + &&
     find . -type f \( -name pnpm-lock.yaml -o -name package-lock.json \) -exec rm -f -- {} + &&
     pnpm install
 fi
@@ -16,7 +17,7 @@ fi
 if [ "$FIRST_ARGUMENT" = "pub" ]
 then
   shift
-  pnpm exec ts-node --project publish/tsconfig.json publish/publish.ts "$@"
+  exec pnpm exec ts-node --project publish/tsconfig.json publish/publish.ts "$@"
 fi
 
 
