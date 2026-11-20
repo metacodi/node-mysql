@@ -17,7 +17,7 @@ importers:
     devDependencies:
       '@metacodi/node-utils':
         specifier: ^1.0.81
-        version: 1.0.81(chalk@4.1.2)(commander@14.0.3)(moment@2.31.0)
+        version: 1.0.81(commander@14.0.3)
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.9
@@ -50,7 +50,7 @@ importers:
     devDependencies:
       '@metacodi/node-utils':
         specifier: ^1.0.81
-        version: 1.0.81(chalk@4.1.2)(commander@14.0.3)(moment@2.31.0)
+        version: 1.0.81(commander@14.0.3)
       '@types/node':
         specifier: ^25.6.0
         version: 25.9.9
@@ -65,7 +65,7 @@ importers:
     devDependencies:
       '@metacodi/node-utils':
         specifier: ^1.0.81
-        version: 1.0.81(chalk@4.1.2)(commander@14.0.3)(moment@2.31.0)
+        version: 1.0.81(commander@14.0.3)
       '@types/node':
         specifier: ^25.9.5
         version: 25.9.9
@@ -161,15 +161,13 @@ packages:
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
   '@metacodi/api-model@1.0.20':
-    resolution: {integrity: sha512-bIlJOgSXKDDAh/160m84CcfigV4hgGLsSr+1t1BguT05AhKAHC7xmSXTGH8EPa/mcIvMq6BV4huL78wvF+Tt7Q==, tarball: https://npm.pkg.github.com/download/@metacodi/api-model/1.0.20/f5136ab0ecf30a20cc29050c60e02313d84e2241}
+    resolution: {integrity: sha512-1rarJs/GUKrpMKvBk5O2dm3sRTI2qqd/dlArQUD99TAgYUsWLm7rAYRjb2qXDVifTHELLDqcezZvgSIfXc4RqA==, tarball: https://npm.pkg.github.com/download/@metacodi/api-model/1.0.20/6c048e14abf5c313e2e75378462ede575ae2d4d6}
 
   '@metacodi/node-utils@1.0.81':
-    resolution: {integrity: sha512-nO0ZAx0o1V7w7XDLw8OS2tcHQJw19bl1jcacDUPngevbZX0iZzJRP3/zdCl+dG5ETYv83AjDYDFsarKUDG44IA==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/12803fadbd96b5d1a0a9e7b2ebbd53a73de4f5c2}
+    resolution: {integrity: sha512-8I2C1uXtYiv5ILw7a0MBWrogOfbZxX8uvArkCNoVHpYEXCkzCt6LsDne8xk7LXluXS7+pDgfzRlTFhIUR7amig==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/9c46b941e4866d8aa6de3d7b8ce3f61840a30daf}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
-      chalk: ^4.1.2
       commander: ^14.0.3
-      moment: ^2.30.0
 
   '@tsconfig/node10@1.0.14':
     resolution: {integrity: sha512-UzoEnKAHteIy/qT3dM0eyyviwfJzEDnrLKALKCvu0ToklMLgiDW5waEu/0Pl+6w4nBxGIaUskiFg7NzvQpPs0g==}
@@ -717,7 +715,7 @@ snapshots:
 
   '@metacodi/api-model@1.0.20': {}
 
-  '@metacodi/node-utils@1.0.81(chalk@4.1.2)(commander@14.0.3)(moment@2.31.0)':
+  '@metacodi/node-utils@1.0.81(commander@14.0.3)':
     dependencies:
       chalk: 4.1.2
       commander: 14.0.3

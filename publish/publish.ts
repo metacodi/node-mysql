@@ -1,6 +1,6 @@
 import * as Prompt from 'commander';
 
-import { publishPackage, Terminal, upgradeDependency } from '@metacodi/node-utils';
+import { publishPackage, Terminal } from '@metacodi/node-utils';
 
 /**
  * **Usage**
@@ -31,11 +31,11 @@ if (promptOpts.verbose) { console.log('Arguments: ', promptOpts); }
     await publishPackage({
       verbose: !!promptOpts.verbose,
       commitMessage: promptOpts.commit,
-      incrementVersion: !promptOpts.republish,
-      removeCurrentVersion: !!promptOpts.republish,
+      republish: !!promptOpts.republish,
     });
 
   } catch (error) {
+    process.exitCode = 1;
     Terminal.error(error);
   }
   Terminal.line();
