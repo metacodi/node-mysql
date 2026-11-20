@@ -11,6 +11,9 @@ importers:
       '@metacodi/api-model':
         specifier: ^1.0.20
         version: 1.0.20
+      mysql2:
+        specifier: ^3.22.3
+        version: 3.24.6(@types/node@25.9.9)
       named-placeholders:
         specifier: ^1.1.3
         version: 1.1.6
@@ -36,9 +39,6 @@ importers:
       eslint:
         specifier: ^10.9.1
         version: 10.15.0(supports-color@7.2.0)
-      mysql2:
-        specifier: ^3.22.3
-        version: 3.24.6(@types/node@25.9.9)
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@25.9.9)(typescript@6.0.3)
@@ -164,7 +164,7 @@ packages:
     resolution: {integrity: sha512-1rarJs/GUKrpMKvBk5O2dm3sRTI2qqd/dlArQUD99TAgYUsWLm7rAYRjb2qXDVifTHELLDqcezZvgSIfXc4RqA==, tarball: https://npm.pkg.github.com/download/@metacodi/api-model/1.0.20/6c048e14abf5c313e2e75378462ede575ae2d4d6}
 
   '@metacodi/node-utils@1.0.81':
-    resolution: {integrity: sha512-8I2C1uXtYiv5ILw7a0MBWrogOfbZxX8uvArkCNoVHpYEXCkzCt6LsDne8xk7LXluXS7+pDgfzRlTFhIUR7amig==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/9c46b941e4866d8aa6de3d7b8ce3f61840a30daf}
+    resolution: {integrity: sha512-8K2CXpLDUXTwz8iPqpT8VNc/8Itx4o299nLWIkyNe0HGEIDM8ppgnsU4KIX25s/ZvI/BDgMUngdGlkm/a6CEfQ==, tarball: https://npm.pkg.github.com/download/@metacodi/node-utils/1.0.81/1c7315de7c55015d823e67464793c100088553b5}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       commander: ^14.0.3
